@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+    <link href="{% static "css/materialize.css" %}" rel="stylesheet">
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <section class="base-nav">
+        <ul class="list-unstyled">
+            {% include "partials/nav_base.html" %}
+        </ul>
+    </section>
+    <div class="wrapper">
+        <header class="header">
+            <span class="bg">
+                <img class="logo" src="{% static "img/logo.svg" %}">
+                <img class="hamburger" src="{% static "img/hamburger.svg" %}">
+            </span>
+        </header>
+        <!-- .header-->
+        <div class="middle">
+            {% block content_wrapper %}{% endblock %}
+        </div>
+        <!-- .middle-->
+    </div>
+    <!-- .wrapper -->
+    <footer class="footer">
+        <strong>Footer:</strong>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
+    <script src="{% static "js/contact_me.js" %}"></script>
+</body>
+</html>

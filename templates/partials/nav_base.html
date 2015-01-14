@@ -1,0 +1,10 @@
+{% load staticfiles %}
+
+
+<li><img class="logo" src="{% static "img/logo.svg" %}"></li>
+<a href="#"><li class="active"><i class="fa fa-home"></i><span>Главная</span></li></a>
+
+<a href="/company/"><li><i class="fa fa-group"></i><span>О компании</span></li></a>
+<a href="/document/"><li><i class="fa fa-file"></i><span>Документы</span></li></a>
+<a href="/contacts/"><li><i class="fa fa-phone"></i><span>Контакты</span></li></a>
+<a href="#" data-toggle="modal" data-target="#contactModal"><li><i class="fa fa-comment"></i><span>Обратная связь</span></li></a>

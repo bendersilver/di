@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block headertext %}{{ title }}{% endblock %}
+
+{% block content %}
+	{% for obj in objs %}
+		<h4>{{ obj.title }}</h4>
+		<ul class="docs">
+			{% for doc in obj.documents.all %}
+			  	<li>
+				  	<span class="icon"><i class="fa fa-file"> {{ doc.get_file_format|cut:'.' }}</i></span>
+					<a href="{{ doc.fi.url }}">{{ doc.title }}</a>
+				  	<span class="filesize">{{ doc.fi.size|filesizeformat }}</span>
+			 	 </li>
+			{% endfor %}
+		</ul>
+	{% endfor %}
+{% endblock %}

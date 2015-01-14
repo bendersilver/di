@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block extrahead %}
+{% endblock %}
+
+
+{% block ngapp %}accountApp{% endblock %}
+{% block content %}
+	<div ng-view class="container"></div>
+{% endblock %}
+
+{% block modal %}
+	<div class="modal fade" id="RawModal" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	        </div>
+	    </div>
+	</div>
+{% endblock %}
+
+{% block extrascripts %}
+{% endblock %} 

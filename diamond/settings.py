@@ -22,7 +22,7 @@ SECRET_KEY = '2%a+f97)havdkmiktxz8kud^1&98vs0guypg7#6i!0vaxsfu7b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -36,11 +36,22 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'sorl.thumbnail',
-    # 'apps.company',
-    # 'apps.docs',
-    # 'apps.contacts',
-    # 'apps.home',
+    'compressor',
+    'sorl.thumbnail',
+    'apps.company',
+    'apps.docs',
+    'apps.contacts',
+    'apps.home',
+)
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages"
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +66,7 @@ MIDDLEWARE_CLASSES = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'compressor.finders.CompressorFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 ROOT_URLCONF = 'diamond.urls'

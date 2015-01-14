@@ -1,0 +1,60 @@
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Обратная связь</h4>
+            </div>
+            <div class="modal-body">
+                <form name="sentMessage" method='post' action='' novalidate>
+                    {% csrf_token %}
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" name="name" class="form-control" placeholder="Имя *" required data-validation-required-message="Введите имя" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="tel" class="form-control" name="phone" placeholder="Телефон"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                           <input type="email" class="form-control" name="email" placeholder="E-mail *" required data-validation-required-message="Введите адрес электронной почты" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" name="title" placeholder="Заголовок *"required data-validation-required-message="Введите заголовок обращения" />
+                        </div>
+                    </div>
+                     <div class="control-group">
+                        <div class="controls">
+                           <textarea name="body" class="form-control" placeholder="Текст обращения *" required data-validation-required-message="Введите текст обращения" ></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-link cancel" data-dismiss="modal" aria-hidden="true">Отмена</button>
+                    <button type="submit" class="btn btn-link">Отправить</button>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contactModalsend" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>

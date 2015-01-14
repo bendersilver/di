@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block headertext %}{{ obj.title }}{% endblock %}
+
+{% block content %}
+	{{ obj.subline|safe }}
+{% endblock %}

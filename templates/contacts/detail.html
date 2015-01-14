@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block headertext %}{{ obj.title }}{% endblock %}
+
+{% block content %}
+	<div class="subline">
+		{{ obj.subline|safe }}
+	</div>
+	<address>
+	    <strong>{{ obj.title }}</strong>
+	    <br> {{ obj.index }}, {{ obj.region }},
+	    <br> {{ obj.city }} {{ obj.street }}, 
+        <br> {{ obj.building }}, {{ obj.office }}
+        <br> 
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Схема проезда</button>
+	</address>
+	<br>
+	<address>
+	    <strong>Режим работы:</strong>
+	    {% for obj in obj.working_time.all %}
+	    <div>{{ obj.working_time|upper }} : {{ obj.value }}</div>
+	    {% endfor %}
+	</address>
+	<br>
+	<address>
+	    <strong>Контакты:</strong>
+	    {% for obj in obj.contact_phones.all %}
+		    <div><i class="fa fa-phone"></i> {{ obj.phone }}</div>
+		    <small>{{ obj.subline }}</small>
+	    {% endfor %}
+	    <br/>
+	     {% for obj in obj.contact_email.all %}
+	    <div><i class="fa fa-envelope-o"></i> <a href="mailto:{{ obj.email }}">{{ obj.email }}</a></div>
+	    <small>{{ obj.subline }}</small>
+	    {% endfor %}
+	</address>
+	 
+
+
+    <div class="email contacts">
+        {% for contactemail in contact.contactemail_set.all %}
+        <i class="icon-envelope"></i><a href="mailto:{{ contactemail.email }}"><span itemprop="email">{{ contactemail.email }}</span></a><br/>
+        <small>{{ contactemail.subline }}</small><br/>
+        {% endfor %}
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Схема проезда</h4>
+            </div>
+            <div class="modal-body">
+                {{ obj.ya_maps|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
