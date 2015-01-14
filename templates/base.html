@@ -15,6 +15,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
+ {% if user.is_authenticated and user.is_staff %}
     <section class="base-nav">
         <ul class="list-unstyled">
             {% include "partials/nav_base.html" %}
@@ -41,5 +42,6 @@
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
     <script src="{% static "js/contact_me.js" %}"></script>
+{% endif %}
 </body>
 </html>
