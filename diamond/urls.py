@@ -9,6 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = patterns('',
 	url(r'^$', HomePageView.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'^company/', include('apps.company.urls')),
     url(r'^document/', include('apps.docs.urls')),
     url(r'^contacts/', include('apps.contacts.urls')),

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Contact(models.Model):
 	title = models.CharField(max_length=255,
@@ -9,11 +10,11 @@ class Contact(models.Model):
 	menu = models.CharField(blank=True, null=True,
 							max_length=255,
 							verbose_name=u'Название пункта меню')
-	ya_maps = models.TextField(blank=True, null=True,
+	ya_maps = RichTextField(blank=True, null=True,
 							verbose_name=u"Яндекс карта ",
 							help_text=u"берется с конструктора карт тут http://api.yandex.ru/maps/tools/constructor/ \
 							Так же необходимо в ручную указать размеры карты width=825&height=350")
-	subline = models.TextField(blank=True, null=True,
+	subline = RichTextField(blank=True, null=True,
 							verbose_name=u"Текст под заголовком",
 							help_text=u"Краткое описание содержимого страницы")
 	index = models.IntegerField(
@@ -94,7 +95,7 @@ class ContactForm(models.Model):
 							verbose_name=u'Телефон')
 	email = models.EmailField(verbose_name='E-mail')
 	title = models.CharField(max_length=255, verbose_name='Заголовок')
-	body = models.TextField(verbose_name='Сообщение')
+	body = RichTextField(verbose_name='Сообщение')
 	date_created = models.DateTimeField(auto_now_add=True)
 
 	class Meta:

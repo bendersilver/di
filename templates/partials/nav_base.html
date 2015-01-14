@@ -1,10 +1,11 @@
 {% load staticfiles %}
+{% with request.resolver_match.url_name as u_nm %}
 
+	<li><img class="logo" src="{% static "img/logo.svg" %}"></li>
+	<a href="{% url 'home' %}"><li{% if u_nm == 'home' %} class="active"{% endif %}><i class="fa fa-home"></i><span>Главная</span></li></a>
 
-<li><img class="logo" src="{% static "img/logo.svg" %}"></li>
-<a href="#"><li class="active"><i class="fa fa-home"></i><span>Главная</span></li></a>
-
-<a href="/company/"><li><i class="fa fa-group"></i><span>О компании</span></li></a>
-<a href="/document/"><li><i class="fa fa-file"></i><span>Документы</span></li></a>
-<a href="/contacts/"><li><i class="fa fa-phone"></i><span>Контакты</span></li></a>
-<a href="#" data-toggle="modal" data-target="#contactModal"><li><i class="fa fa-comment"></i><span>Обратная связь</span></li></a>
+	<a href="{% url 'company_index' %}"><li{% if u_nm == 'company_index' %} class="active"{% endif %}><i class="fa fa-group"></i><span>О компании</span></li></a>
+	<a href="{% url 'doc_index' %}"><li{% if u_nm == 'doc_index' %} class="active"{% endif %}><i class="fa fa-file"></i><span>Документы</span></li></a>
+	<a href="{% url 'contact_index' %}"><li{% if u_nm == 'contact_index' %} class="active"{% endif %}><i class="fa fa-phone"></i><span>Контакты</span></li></a>
+	<a href="#" data-toggle="modal" data-target="#contactModal"><li><i class="fa fa-comment"></i><span>Обратная связь</span></li></a>
+{% endwith %}

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import re
+import uuid
 
 from django.db import models
 
@@ -15,10 +15,15 @@ class DocsTitle(models.Model):
         verbose_name_plural = u'Документы'
 
 class Docs(models.Model):
+
+	def content_file_name(instance, filename):
+		filename = str(uuid.uuid1()) + '.' + filename.split('.')[-1]
+		return ('docs/' + filename)
+
 	doc = models.ForeignKey('DocsTitle', related_name='documents')
 	title = models.CharField(max_length=255,
 							verbose_name=u'Название файла')
-	fi = models.FileField(upload_to='docs/%Y/%m/',
+	fi = models.FileField(upload_to=content_file_name,
 							verbose_name=u'Файл')
 
 	def __unicode__(self):
@@ -29,5 +34,4 @@ class Docs(models.Model):
 		verbose_name_plural = u'Документы'
 
 	def get_file_format(self):
-		pattern = '[.].*$'
-		return re.findall(pattern, self.fi.name)[0]
+		return self.fi.name.split('.')[-1]

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Company(models.Model):
 	title = models.CharField(max_length=255,
@@ -8,7 +9,7 @@ class Company(models.Model):
 	menu = models.CharField(blank=True, null=True,
 							max_length=255,
 							verbose_name=u'Название пункта меню')
-	subline = models.TextField(u"Текст страницы")
+	subline = RichTextField(u"Текст страницы")
 
 	def __unicode__(self):
 		return u"%s" % self.title
