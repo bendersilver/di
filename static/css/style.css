@@ -1,56 +1,17 @@
-/*@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&subset=cyrillic,cyrillic-ext,latin);*/
-
-html, body, div, span, applet, object, iframe,
-p, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1.5;
-	color: #263238;
-}
-ol, ul {
-	list-style: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/* End of Eric Meyer's CSS Reset */
-
 html {
 	height: 100%;
 }
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
-	display: block;
-}
 body {
 	background-color: #CFD8DC;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	width: 100%;
 	height: 100%;
 	font-weight: 400;
 	color: #263238;
+	line-height: 1.5;
+	font-size: 16px;
 }
-h1, h2, h3, h4, h5, h6{
+h1{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -58,30 +19,31 @@ h1, h2, h3, h4, h5, h6{
 	vertical-align: baseline;
 	font-size: 32px;
 }
-h4{
-	font-size: 22px;
-	font-weight: bold;
-	line-height: 24px;
-	margin-bottom: 20px;
-}
+
 .wrapper {
 	box-shadow: 0 0 10px #263238;
 	background-color: #ECEFF1;
-	width: 790px;
+	width: 960px;
 	margin: 0;
-	margin-left: 170px;
+	margin-left: 220px;
 	min-height: 100%;
 	height: auto !important;
 	position: relative;
 	z-index: 2;
 }
-
-
+body.modal-open .wrapper{
+	z-index: 0
+}
+a {
+	color: #26A69A;
+}
+a:focus, a:hover{
+	color: #00897B;
+}
 /* Header
 -----------------------------------------------------------------------------*/
 .logo{
 	height: 30px;
-	margin: 10px
 }
 .header {
 	background-color: #78909C;
@@ -89,37 +51,39 @@ h4{
 	height: 50px;
 	display: none;
 }
+.container {
+	width: 100%;
+	padding-right: 16px;
+	padding-left: 16px;
+	margin-right: auto;
+	margin-left: auto;
+}
 
 
 /* Middle
 -----------------------------------------------------------------------------*/
 .header-title{
-	height: 52px;
-	background-color: #424242;
-	color: #fff;
+	border-top: 5px solid #00897b;
+	height: 95px;
+	background-color: #cfd8dc;
 	padding-top: 5px;
 	margin-bottom: 25px;
+	border-bottom: 1px solid #b2c0c7;
 }
-/*.middle {
-	width: 100%;
-	padding: 0 0 100px;
-	position: relative;
+.header-title h1{
+	margin-top: 6px;
 }
-.middle:after {
-	display: table;
-	clear: both;
-	content: '';
+.breadcrumb{
+	font-size: 12px;
+	padding: 14px 0;
+	background-color: transparent;
 }
-.container {
-	width: 100%;
-	float: left;
-	overflow: hidden;
+.breadcrumb>.active {
+	color: #90A4AE;
 }
-.content {
-	padding: 0 0 0 270px;
-}*/
-
-
+.breadcrumb>li+li:before{
+	color: #B0BEC5;
+}
 /* Left Sidebar
 -----------------------------------------------------------------------------*/
 
@@ -128,7 +92,6 @@ h4{
 	position: fixed;
 	float: left;
 	background-color: #78909C;
-	font-weight: 400;
 	z-index: 1;
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
@@ -153,6 +116,9 @@ h4{
 	-moz-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+body.modal-open .base-nav{
+	z-index: -1;
+}
 .base-nav.in{
 	visibility: visible;
 	-webkit-transform: translateX(0);
@@ -171,37 +137,62 @@ h4{
 .base-nav a li:hover{
 	background-color: #90A4AE;
 }
-.base-nav a li{
+.base-nav li{
 	color: #fff;
-	padding: 10px 15px;
+	padding: 10px 16px;
 	text-decoration: none;
 	box-shadow: 0 1px 0 0 #607D8B, 0 2px 0 0 #90A4AE;
 }
 .base-nav a li span{
 	font-size: 12px;
-	padding-left: 10px
 }
 .base-nav{
-		width: 170px;
+		width: 220px;
+}
+.base-nav a li i{
+	font-size: 22px;
+	width: 38px;
 }
 
-
+.modal-content{
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 2px 2px rgba(0,0,0,.4);
+	box-shadow: 0 1px 2px 2px rgba(0,0,0,.4);
+	border-color: transparent;
+	border-width: 0;
+	border-radius: 0;
+}
+.modal-dialog{
+	width: 790px;
+	margin: 5px 0 10px 305px;
+}
+.modal-header{
+	background-color: #cfd8dc;
+	border-bottom: 1px solid #b2c0c7;
+}
+.modal-backdrop{
+	background-color: #e0f2f1;
+}
+.form-control{
+	border-radius: 0px;
+	background-color: transparent;
+	border-width: 0;
+}
+.btn-link{
+	color: #26A69A;
+	text-transform: uppercase;
+}
+.btn-link:hover, .btn-link:focus{
+	color: #00897B;
+}
 /* Footer
 -----------------------------------------------------------------------------*/
-.footer {
-	width: 790px;
-	margin: -100px 0 0 170px;
-	height: 100px;
-	background: #BFF08E;
-	position: relative;
-	z-index: 3;
-}
-
 .docs{
 	color: #757575;
 }
 .docs li{
 	margin-bottom: 10px;
+	list-style: none;
 }
 .docs .icon{
 	width: 50px;
@@ -213,19 +204,12 @@ h4{
 	font-size: 12px;
 	margin-left: 15px;
 }
-.modal-dialog{
-	width: 790px;
-	margin: 10px 0 10px 170px;
-}
+
 .subline{
 	margin-bottom: 20px
 }
-.modal-content{
-	background-color: #607D8B;
-}
-.modal-header, .modal-footer{
-	background-color: #546E7A;
-}
+
+
 small {
 	display: block;
 	color: #78909C;
@@ -267,11 +251,7 @@ textarea:focus{
 ::-moz-placeholder          {color:#B0BEC5;}/* Firefox 19+ */
 :-moz-placeholder           {color:#B0BEC5;}/* Firefox 18- */
 :-ms-input-placeholder      {color:#B0BEC5;}
-.modal-body form{
-	color: #ECEFF1;
-	text-align: right;
 
-}
 .control-group.error input,
 .control-group.warning input:focus,
 .control-group.warning input
@@ -293,22 +273,30 @@ textarea:focus{
 .btn.active.focus {
   outline: none;
 }
-.modal-body form .btn{
-	color: #fff;
-	font-weight: 600;
-	margin-top: 20px;
-}
-.modal-body form .btn:hover{
-	text-decoration: none;
-	text-shadow: 1px 1px #37474F;
-}
-.modal-body form .btn.cancel{
-	color: #90A4AE;
-}
-p{
-	margin-bottom: 15px;
-	color: #263238;
-}
+
 p .marker{
 	margin-left: 25px;
+}
+
+@media all and (max-width: 1200px){
+	.wrapper{
+		width: 790px;
+	}
+	.modal-dialog{
+		margin-left: 220px;
+	}
+}
+@media all and (max-width: 1024px){
+	.base-nav{
+		width: 60px;
+	}
+	.base-nav li span{
+		display: none;
+	}	
+	.wrapper{
+		margin-left: 60px;
+	}
+	.modal-dialog{
+		margin-left: 60px;
+	}
 }

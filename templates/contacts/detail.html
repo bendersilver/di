@@ -14,14 +14,12 @@
         <br> 
         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Схема проезда</button>
 	</address>
-	<br>
 	<address>
 	    <strong>Режим работы:</strong>
 	    {% for obj in obj.working_time.all %}
 	    <div>{{ obj.working_time|upper }} : {{ obj.value }}</div>
 	    {% endfor %}
 	</address>
-	<br>
 	<address>
 	    <strong>Контакты:</strong>
 	    {% for obj in obj.contact_phones.all %}

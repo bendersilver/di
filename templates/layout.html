@@ -4,22 +4,27 @@
 
 {% block content_wrapper %}
     {% block title %}
-    <div class="container-fluid header-title">
+    <div class="container header-title">
         <h1>{% block headertext %}Заголовок{% endblock %}</h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">Data</li>
+        </ol>
     </div>
     {% endblock %}
-    <div class="container-fluid">
+    <div class="container">
         {% block content %}{% endblock %}
     </div>
     {# {% block breadcrumbs %} #}
-    {# <div class="container-fluid breadcrumbs"> #}
+    {# <div class="container breadcrumbs"> #}
         {# <ol class="breadcrumb"> #}
             {# <li> <a href="/" itemprop="url">Главная</a></li> #}
             {# {% block breadcrumbs_title %}{% endblock %} #}
         {# </ol> #}
     {# </div> #}
     {# {% endblock %} #}
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div id="grid-cont">
                 <section class="grid_outer chapter">

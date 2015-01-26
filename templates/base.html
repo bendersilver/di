@@ -8,11 +8,10 @@
     <title></title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
-    <link href="{% static "css/materialize.css" %}" rel="stylesheet">
-    <link href="{% static "css/base.css" %}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 </head>
 <body>
  {% if user.is_authenticated and user.is_staff %}
@@ -35,11 +34,11 @@
         <!-- .middle-->
     </div>
     <!-- .wrapper -->
-    <footer class="footer">
-        <strong>Footer:</strong>
-    </footer>
+    {# <footer class="footer"> #}
+        {# <strong>Footer:</strong> #}
+    {# </footer> #}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
     <script src="{% static "js/contact_me.js" %}"></script>
 {% endif %}
